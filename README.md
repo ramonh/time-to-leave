@@ -58,6 +58,7 @@ You can also add waivers on the days you did not work.
 
 Time to Leave works on MacOS, Windows and Linux, and you can download the desired version from [the latest release](https://github.com/thamara/time-to-leave/releases/latest).
 
+
 ## How to build and contribute to TTL
 
 If you want to help, read our [contributing](CONTRIBUTING.md) guidelines.
