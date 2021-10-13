@@ -35,6 +35,7 @@ Who built 2.0.2:
 -   araujoarthur0
 -   chopinballadeno4
 -   fikimaul
+-   giovannipessiva
 -   haeramkeem
 -   hy38
 -   manisai216
@@ -43,10 +44,10 @@ Who built 2.0.2:
 -   omerisildak
 -   panicswtch
 -   sgronlund
+-   test
 -   thamara
 -   thefyrewire
 -   tupaschoal
--   giovannipessiva
 
 <!--- End users - Do not remove -->
 
