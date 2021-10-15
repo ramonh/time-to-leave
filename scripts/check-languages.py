@@ -196,6 +196,7 @@ def get_arguments():
     parser.add_argument("-report_key_mismatch", help="Include missing/extra keys", action='store_true')
     parser.add_argument("-report_missing_translations", help="Prints missing string translations", action='store_true')
     parser.add_argument("-link_to_missing", help="Includes a link to the missing translations", action='store_true')
+    parser.add_argument("-raw_report", help="File path for the raw report")
     return parser.parse_args()
 
 def percentage_not_translated(total_strings_for_translation : int, missing_keys : dict) -> float:
@@ -270,6 +271,13 @@ class Report:
         self.errors_missing_keys = errors_missing_keys
         self.errors_extra_keys = errors_extra_keys
         self.missing_translations = missing_translations
+    
+    def toJson(self):
+        return json.dumps(self, default=lambda o: o.__dict__, sort_keys=True, indent=4)
+    
+    def fromJSON(json_data):
+        dictionary = json.loads(json_data)
+        return Report(**dictionary)
 
     # Report in stdout and on the output file (if passed) the errors found
     def generate(self):
@@ -339,6 +347,10 @@ def main():
     config = Config(args.report_summary, args.link_to_missing, args.report_key_mismatch, args.report_missing_translations, output)
     report = Report(config, errors_missing_keys, errors_extra_keys, missing_translations)
     report.generate()
+    
+    if args.raw_report:
+        with open(args.raw_report, 'w') as f:
+            f.write(report.toJson())
 
 if __name__ == "__main__":
     main()
