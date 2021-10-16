@@ -183,9 +183,9 @@ def get_missing_keys(baseline_language : dict, language : dict) -> dict:
             keys = language[scope].keys()
             missing_keys_in_scope = baseline_keys - keys
             if missing_keys_in_scope:
-                missing_keys[scope] = missing_keys_in_scope
+                missing_keys[scope] = list(missing_keys_in_scope)
         else:
-            missing_keys[scope] = {}
+            missing_keys[scope] = []
     return missing_keys
 
 def get_arguments():
