@@ -10,7 +10,7 @@ jobs:
         with:
           python-version: '3.9'
       - name: Checkout repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       - name: Write localization target (with PR changes)
         run: |
           python scripts/check_languages.py -raw_report target.json -report_key_mismatch -report_missing_translations
